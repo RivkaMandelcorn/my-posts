@@ -6,18 +6,19 @@
     {
         <p>{{writer.name}}</p>
     } 
-    <table mat-table [dataSource]="dataSource">
+    <!-- <table mat-table [dataSource]="dataSource">
         @for(column of columns; track column){
             <ng-container matColumnDef="{{column}}">
           <mat-header-cell *matHeaderCellDef="{{column}}">{{column}}</mat-header-cell>
           <mat-cell *matCellDef="{{column}}">{{writer[column]}}</mat-cell>
         </ng-container>
+    }
       
         <ng-container matHeaderRowDef *matHeaderRowDef="'header'">
-          <mat-header-cell *matHeaderCellDef="{{column}}" for="{{column}}" [align]="column === 'id' ? 'center' : 'left'">{{column}}</mat-header-cell>
+          <mat-header-cell *matHeaderCellDef="{{column}}" for="{{column}}">{{column}}</mat-header-cell>
         </ng-container>
     
         <mat-row *matRowDef="let row; columns as displayedColumns"></mat-row>
-    }
-      </table>
+
+      </table> -->
       }

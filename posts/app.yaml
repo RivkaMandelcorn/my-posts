@@ -1,0 +1,14 @@
+runtime: nodejs20
+
+instance_class: F2
+
+env_variables: 
+  BUCKET_NAME: "your-ng-app-bucket"
+
+handlers:
+  - url: /
+    static_files: dist/posts/browser/index.html  # Use forward slashes
+    upload: dist/posts/browser/index.html  # Use forward slashes
+
+  - url: /
+    static_dir: dist/posts/browser  # Use forward slashes

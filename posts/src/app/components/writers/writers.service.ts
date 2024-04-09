@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,10 +7,10 @@ export class WritersService {
 
   constructor() { }
 
-  async getWriters():Promise<Array<Writers>> {
+  async getWriters(): Promise<Array<Writers>> {
     var d = await fetch('https://jsonplaceholder.typicode.com/users')
       .then((response) => response.json());
-      return await d;
+    return await d;
   }
 
 }

@@ -1,18 +1,15 @@
 <mat-card style="width: 30vw; margin-left: 35vw; margin-top: 20vh; display: flex; align-items: center;" [formGroup]="loginForm">
 <p>
     <mat-form-field appearance="fill"  style="width: 25vw;" >
-        <mat-label>User Name</mat-label>
-        <input matInput placeholder="User Name" formControlName="name">
-    </mat-form-field>
-</p>
-<p>
-    <mat-form-field appearance="fill"  style="width: 25vw;">
-        <mat-label>Email</mat-label>
-        <input matInput placeholder="Email" formControlName="email">
+        <mat-label>User ID</mat-label>
+        <input matInput placeholder="User ID" formControlName="id">
     </mat-form-field>
 </p>
 
 <button mat-flat-button style="background-color: #d69191; color: white; margin-bottom: 2vh;"
-type="submit" [disabled]="!loginForm.valid"
+type="submit" [disabled]="!loginForm.valid" (click)=navigate()
 >Login</button>
 </mat-card>
+@if(spiner){
+    <mat-spinner style="margin: auto;"></mat-spinner>
+  }

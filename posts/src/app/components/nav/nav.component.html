@@ -1,5 +1,5 @@
 <div style="background-color: #d69191; display: flex; justify-content: space-between;">
-    
+    @if(isLoggedIn){
     <div style="margin-left: 5vh;">
         <button routerLink="/" mat-button style="color:#ffffff; margin: 3vh;">
         <mat-icon fontIcon='home'></mat-icon>
@@ -13,8 +13,8 @@
         </button>
     </div>
 
-    <button routerLink="/login" mat-raised-button style="margin: 3vh; margin-right: 10vh;">login
+    <button routerLink="/logout" mat-raised-button style="margin: 3vh; margin-right: 10vh;">logout
         <mat-icon fontIcon='account_circle'></mat-icon>
-    </button>
+    </button>}
 
 </div>

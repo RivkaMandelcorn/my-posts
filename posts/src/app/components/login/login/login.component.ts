@@ -7,21 +7,45 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
 import { LoginService } from '../login.service';
+import { Writers } from '../../writers/writers.service';
+import { User } from '../../model/User.modle';
+import { AuthServiceService } from '../../../core/services/Authentication/auth-service.service';
+import { Router } from '@angular/router';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [MatCardModule,FormsModule,MatFormFieldModule,MatInputModule,MatIconModule,MatButtonModule,MatDividerModule,ReactiveFormsModule],
+  imports: [MatProgressSpinnerModule,MatCardModule,FormsModule,MatFormFieldModule,MatInputModule,MatIconModule,MatButtonModule,MatDividerModule,ReactiveFormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  loginForm = new FormGroup({
-    name: new FormControl('', Validators.required),
-    email: new FormControl('', Validators.required),
-  });
 
-  constructor(private login:LoginService){
-    login.getUser("A","a");
+  loginForm = new FormGroup({
+    id: new FormControl('', Validators.required),
+  });
+  user: Promise<User> | null;
+  id!: number
+  spiner : boolean = false;
+  constructor(private login:LoginService, private authService: AuthServiceService, private router:Router){
+    this.user = null;
   }
-}
+  navigate() {
+    this.spiner = true;
+    this.id = this.loginForm.controls.id.value ? parseInt(this.loginForm.controls.id.value) : 0;
+    this.authService.login(this.id).then(data=>{
+      if(data){
+        let profile = (data as User);
+        this.authService.setLoggedIn = true;
+        this.spiner = false;
+        this.router.navigate(['/home']);
+      }
+    },
+    error=>{
+        alert("erroe")
+    }    
+  )
+    }
+  }
+

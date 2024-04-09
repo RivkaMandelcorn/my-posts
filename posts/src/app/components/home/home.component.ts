@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AuthServiceService } from '../../core/services/Authentication/auth-service.service';
+import { User } from '../model/User.modle';
 
 @Component({
   selector: 'app-home',
@@ -8,5 +10,9 @@ import { Component } from '@angular/core';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
+  user : User
+constructor(private authService: AuthServiceService){
+  this.user= authService.getuser()[0];
+}
 
 }

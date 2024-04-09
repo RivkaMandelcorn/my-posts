@@ -1,1 +1,4 @@
-<p>posts works!</p>
+@if(writer?.name){
+    <h1 style="text-align: center;">{{writer?.name}} Posts</h1>
+}
+<app-accordion [accordions]="data"></app-accordion>

@@ -12,6 +12,11 @@ export class WritersService {
       .then((response) => response.json());
     return await d;
   }
+  async getWriterById(id:number): Promise<Writers> {
+    var d = await fetch('https://jsonplaceholder.typicode.com/users/'+id)
+      .then((response) => response.json());
+    return await d;
+  }
 
 }
 export interface Writers {

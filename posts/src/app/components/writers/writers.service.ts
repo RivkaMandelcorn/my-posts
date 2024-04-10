@@ -24,21 +24,9 @@ export interface Writers {
   name: string;
   username: string;
   email: string;
-  adress: Address;
   phone: string;
   website: string;
   company: Company;
-}
-interface Address {
-  street: string;
-  suit: string;
-  city: string;
-  zipcode: string;
-  geo: Geo;
-}
-interface Geo {
-  lat: string;
-  lng: string;
 }
 interface Company {
   name: string;

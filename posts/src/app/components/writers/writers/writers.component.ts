@@ -13,7 +13,7 @@ import { ViewTableComponent } from '../../../core/customComponents/view-table/vi
 })
 export class WritersComponent implements OnInit {
   data: any[] = [];
-  columns = ['name', 'email'];
+  columns= ['User-Name','Email','Phone','Website'];
   header="Writers";
 
   constructor(private writersService: WritersService) { }
